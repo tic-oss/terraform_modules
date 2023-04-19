@@ -26,7 +26,7 @@ while EKS is a fully managed Kubernetes service. EKS can use EBS volumes to stor
 ## How to use this module?
 ```
 module "ebs_csi_driver" { 
-    source = "github.com/craxkumar/terraform_modules/aws/ebs_csi_driver" 
+    source = "github.com/coMakeIT-TIC/terraform_modules/aws/ebs_csi_driver" 
     cluster-name = "your_cluster_name" 
     region = "EKS_cluster_deployed_region" 
 }
@@ -34,7 +34,7 @@ module "ebs_csi_driver" {
 Note:-
 
 1. module name can be anything, but name it as "ebs_csi_driver" so it would be easier to understand what the module is meant for.
-2. source should be same as "github.com/craxkumar/terraform_modules/aws/ebs_csi_driver".
+2. source should be same as "github.com/coMakeIT-TIC/terraform_modules/aws/ebs_csi_driver".
 3. cluster name, mention your defined EKS cluster name in which you want to add ebs_csi driver.
 4. region, mention region in which the EKS cluster is deployed.
 ---
