@@ -1,5 +1,5 @@
 locals {
-  grafana-yamls = [for data in split("---", file("./grafana.yaml")): yamldecode(data)]
+  grafana-yamls = [for data in split("---", file("${path.module}/grafana.yaml")): yamldecode(data)]
 }
 resource "kubernetes_manifest" "grafana" {
   count = length(local.grafana-yamls)
@@ -7,7 +7,7 @@ resource "kubernetes_manifest" "grafana" {
 }
 
 locals {
-  kiali-yamls = [for data in split("---", file("./kiali.yaml")): yamldecode(data)]
+  kiali-yamls = [for data in split("---", file("${path.module}/kiali.yaml")): yamldecode(data)]
 }
 resource "kubernetes_manifest" "kiali" {
   count = length(local.kiali-yamls)
@@ -18,7 +18,7 @@ resource "kubernetes_manifest" "kiali" {
 }
 
 locals {
-  prometheus-yamls = [for data in split("---", file("./prometheus.yaml")): yamldecode(data)]
+  prometheus-yamls = [for data in split("---", file("${path.module}/prometheus.yaml")): yamldecode(data)]
 }
 resource "kubernetes_manifest" "prometheus" {
   count = length(local.prometheus-yamls)
