@@ -1,3 +1,0 @@
-# Deploy the Kubernetes Dashboard (web UI) in EKS cluster
-
-Read me will be available shortly...

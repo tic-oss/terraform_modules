@@ -4,8 +4,8 @@ This directory contains  deployments of various addons that integrate with Istio
 
 ## Prerequisites
 ---
-1. You have created an Amazon EKS cluster.
-2. You are using a kubectl client that is configured to communicate with your Amazon EKS cluster.
+1. You have created a kubernetes cluster on AWS (EKS) or Azure (AKS).
+2. You are using a kubectl client that is configured to communicate with your cluster.
 
 ## Prometheus
 ---

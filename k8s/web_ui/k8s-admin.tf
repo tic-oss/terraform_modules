@@ -1,9 +1,9 @@
-resource "kubernetes_manifest" "serviceaccount_kube_system_eks_admin" {
+resource "kubernetes_manifest" "serviceaccount_kube_system_k8s_admin" {
   manifest = {
     "apiVersion" = "v1"
     "kind" = "ServiceAccount"
     "metadata" = {
-      "name" = "eks-admin"
+      "name" = "k8s-admin"
       "namespace" = "kube-system"
     }
   }
@@ -12,12 +12,12 @@ resource "kubernetes_manifest" "serviceaccount_kube_system_eks_admin" {
   ]
 }
 
-resource "kubernetes_manifest" "clusterrolebinding_eks_admin" {
+resource "kubernetes_manifest" "clusterrolebinding_k8s_admin" {
   manifest = {
     "apiVersion" = "rbac.authorization.k8s.io/v1"
     "kind" = "ClusterRoleBinding"
     "metadata" = {
-      "name" = "eks-admin"
+      "name" = "k8s-admin"
     }
     "roleRef" = {
       "apiGroup" = "rbac.authorization.k8s.io"
@@ -27,30 +27,30 @@ resource "kubernetes_manifest" "clusterrolebinding_eks_admin" {
     "subjects" = [
       {
         "kind" = "ServiceAccount"
-        "name" = "eks-admin"
+        "name" = "k8s-admin"
         "namespace" = "kube-system"
       },
     ]
   }
   depends_on = [
-    kubernetes_manifest.serviceaccount_kube_system_eks_admin
+    kubernetes_manifest.serviceaccount_kube_system_k8s_admin
   ]
 }
 
-resource "kubernetes_manifest" "secret_kube_system_eks_admin" {
+resource "kubernetes_manifest" "secret_kube_system_k8s_admin" {
   manifest = {
     "apiVersion" = "v1"
     "kind" = "Secret"
     "metadata" = {
       "annotations" = {
-        "kubernetes.io/service-account.name" = "eks-admin"
+        "kubernetes.io/service-account.name" = "k8s-admin"
       }
-      "name" = "eks-admin"
+      "name" = "k8s-admin"
       "namespace" = "kube-system"
     }
     "type" = "kubernetes.io/service-account-token"
   }
   depends_on = [
-    kubernetes_manifest.clusterrolebinding_eks_admin
+    kubernetes_manifest.clusterrolebinding_k8s_admin
   ]
 }
