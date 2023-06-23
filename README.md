@@ -8,6 +8,6 @@
 
 [EKS Autoscaler](aws/eks_autoscaler/README.md)
 
-[EKS Istio Monitoring](aws/eks_istio_monitoring/README.md)
+[Istio Monitoring for Kubernetes](k8s/istio_monitoring/README.md)
 
-[EKS Kubernetes Dashboard Web UI](aws/eks_web_ui/README.md)
+[Kubernetes Dashboard Web UI](k8s/web_ui_dashboard/README.md)
