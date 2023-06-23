@@ -10,4 +10,4 @@
 
 [Istio Monitoring for Kubernetes](k8s/istio_monitoring/README.md)
 
-[Kubernetes Dashboard Web UI](k8s/web_ui/README.md)
+[Kubernetes Dashboard Web UI](k8s/web_ui_dashboard/README.md)
